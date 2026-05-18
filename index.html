@@ -166,7 +166,7 @@
                     </table>
                 </div>
 
-                <h3 style="font-size: 14px; margin: 15px 0 5px 0; color: var(--amber);">سجل الحركات والعمليات الأخير</h3>
+                <h3 style="font-size: 14px; margin: 15px 0 5px 0; color: var(--amber);">سجل العمليات الأخير</h3>
                 <div class="table-container" style="max-height: 180px;">
                     <table>
                         <thead>
@@ -282,12 +282,12 @@
                 
                 renderAdminTables();
                 autoSearch();
-                statusText.innerText = "متصل بالسحابة أونلاين ✅ - البيانات محدثة تماتيك.";
+                statusText.innerText = "متصل  ✅ - البيانات محدثة تماتيك.";
                 statusText.style.color = "#10b981";
-                badge.innerText = "(متصل حي ومزامَن 🌐)";
+                badge.innerText = "(متصل   🌐)";
                 badge.style.color = "#10b981";
             } catch (err) {
-                statusText.innerText = "يعمل محلياً (فشل الاتصال بالسيرفر السحابي).";
+                statusText.innerText = "يعمل محلياً (فشل الاتصال بالسيرفر).";
                 statusText.style.color = "#f43f5e";
             }
         }
@@ -302,7 +302,7 @@
                     headers: { "Content-Type": "application/json", "X-Master-Key": MASTER_KEY },
                     body: JSON.stringify(systemData)
                 });
-                statusText.innerText = "تم التحديث والاعتماد التماتيك لجميع الأجهزة! ✅";
+                statusText.innerText = "تم التحديث ! ✅";
                 statusText.style.color = "#10b981";
             } catch (err) {
                 statusText.innerText = "فشل التحديث التلقائي في السيرفر ❌";
