@@ -109,7 +109,7 @@
         <section id="admin-page" class="page-section hidden">
             <div class="admin-header">
                 <h2 style="color: var(--emerald); font-size: 24px; text-align:center;">إدارة جمارك صرفيت</h2>
-                <p style="color: var(--emerald); font-weight: bold; text-align:center; margin-bottom: 20px;">⚡أي تغيير يتم إعتمادة فوراً  ⚡</p>
+                <p style="color: var(--emerald); font-weight: bold; text-align:center; margin-bottom: 20px;">⚡أي تغيير يتم إعتمادة فوراً ⚡</p>
             </div>
 
             <div class="admin-grid">
@@ -191,74 +191,81 @@
     </div>
 
     <script>
-        // السيرفر السحابي الموحد والمجاني لتخزين أرصدتكم تلقائياً
         const BIN_URL = "https://api.jsonbin.io/v3/b/660c6d2fe41b4d34e4de5527";
         const MASTER_KEY = "$2a$10$Rz29XmN0vH8b61kYyZ77X.E6K/eW6uU05gVbN267S0B6XN1N8K1d2";
         
-
-        // قاعدة البيانات المغذاة بأسماء القوة البشرية الصحيحة من ملف الـ PDF الخاص بكم
         const defaultForce = {
-    "P17904": { id: "P17904", rank: "ملازم", name: "عثمان بن علي الفارسي", balance: 0 },
-    "P232539": { id: "P232539", rank: "رقيب أول", name: "عادل بن سهيل الشحري", balance: 0 },
-    "P237823": { id: "P237823", rank: "رقيب أول", name: "حميد بن محمد الشبيبي", balance: 0 },
-    "P242808": { id: "P242808", rank: "رقيب أول", name: "يحيى بن خليفة الخميسي", balance: 0 },
-    "P253994": { id: "P253994", rank: "رقيب", name: "سالم بن احمد بن علي جيد", balance: 0 },
-    "P256549": { id: "P256549", rank: "رقيب", name: "عبد الله بن عقيل با عمر", balance: 0 },
-    "P257132": { id: "P257132", rank: "رقيب", name: "محمد بن احمد بيت سليم", balance: 0 },
-    "P259011": { id: "P259011", rank: "رقيب", name: "أشرف بن سيف سالم الكلباني", balance: 0 },
-    "P259065": { id: "P259065", rank: "رقيب", name: "عبد الله بن حسن کشوب", balance: 0 },
-    "P265080": { id: "P265080", rank: "رقيب", name: "عبد الله بن علوي با عمر", balance: 0 },
-    "P271625": { id: "P271625", rank: "عريف", name: "المعتصم بن سالم الغملاسي", balance: 0 },
-    "P271806": { id: "P271806", rank: "عريف", name: "حسن بن احمد العجمي", balance: 0 },
-    "P272096": { id: "P272096", rank: "عريف", name: "محمد بن حميد السعدي", balance: 0 },
-    "P272102": { id: "P272102", rank: "عريف", name: "يوسف بن علي المقبالي", balance: 0 },
-    "P14908": { id: "P14908", rank: "رائد", name: "أحمد بن خلفان المحروقي", balance: 0 },
-    "P230152": { id: "P230152", rank: "رقيب أول", name: "محسن بن علي العامري", balance: 0 },
-    "P230314": { id: "P230314", rank: "رقيب أول", name: "محمد بن حمود الرواحي", balance: 0 },
-    "P230434": { id: "P230434", rank: "رقيب أول", name: "سالم بن خميس الحساني", balance: 0 },
-    "P230488": { id: "P230488", rank: "رقيب أول", name: "فهد بن سالم الغافري", balance: 0 },
-    "P231505": { id: "P231505", rank: "رقيب أول", name: "خالد بن خليفة الجابري", balance: 0 },
-    "P234107": { id: "P234107", rank: "رقيب أول", name: "عدنان بن سعيد البرعمي", balance: 0 },
-    "P234609": { id: "P234609", rank: "رقيب أول", name: "أحمد بن سعيد الفجري", balance: 0 },
-    "P235134": { id: "P235134", rank: "رقيب أول", name: "أحمد بن جمعة الهنداشي", balance: 0 },
-    "P235453": { id: "P235453", rank: "رقيب أول", name: "عيسى بن راشد الحراصي", balance: 0 },
-    "P235969": { id: "P235969", rank: "رقيب أول", name: "احمد بن مولى البلوشي", balance: 0 },
-    "P240953": { id: "P240953", rank: "رقيب أول", name: "أحمد بن علي الكثيري", balance: 0 },
-    "P242263": { id: "P242263", rank: "رقيب", name: "سعود بن جمعة السعدي", balance: 0 },
-    "P243673": { id: "P243673", rank: "رقيب", name: "حمود بن عبد الله اليحيائي", balance: 0 },
-    "P244076": { id: "P244076", rank: "رقيب أول", name: "عبد الرحمن بن يوسف البريدعي", balance: 0 },
-    "P245787": { id: "P245787", rank: "رقيب أول", name: "داود بن علي الشرياني", balance: 0 },
-    "P249089": { id: "P249089", rank: "رقيب أول", name: "نوح بن تعيب الجلبوبي", balance: 0 },
-    "P251644": { id: "P251644", rank: "رقيب", name: "مجدي بن عبد المعطي عيدال", balance: 0 },
-    "P253149": { id: "P253149", rank: "رقيب", name: "أحمد بن عوض الجساسي", balance: 0 },
-    "P253166": { id: "P253166", rank: "رقيب", name: "خميس بن سيف العيسائي", balance: 0 },
-    "P253409": { id: "P253409", rank: "رقيب", name: "محمد بن خميس العلوي", balance: 0 },
-    "P255545": { id: "P255545", rank: "رقيب", name: "وليد بن عبد الله الحديدي", balance: 0 },
-    "P257971": { id: "P257971", rank: "رقيب", name: "عبد الله بن سالم الجرداني", balance: 0 },
-    "P257974": { id: "P257974", rank: "رقيب", name: "محمود بن عيسى العلوي", balance: 0 },
-    "P267134": { id: "P267134", rank: "رقيب", name: "عزان بن عبد الرحيم الحمادي", balance: 0 },
-    "P268514": { id: "P268514", rank: "رقيب", name: "راشد بن محمد العلوي", balance: 0 },
-    "P268587": { id: "P268587", rank: "رقيب", name: "علي بن ناصر المشرفي", balance: 0 },
-    "P262411": { id: "P262411", rank: "رقيب", name: "حمد بن يعقوب ناصر المقبالي", balance: 0 },
-    "P266941": { id: "P266941", rank: "رقيب", name: "محمد بن موسى البلوشي", balance: 0 },
-    "P270786": { id: "P270786", rank: "عريف", name: "الحسن بن علي الحوسني", balance: 0 },
-    "P270790": { id: "P270790", rank: "عريف", name: "احمد بن سالم المقبالي", balance: 0 },
-    "P270804": { id: "P270804", rank: "عريف", name: "محمد بن ناصر المسلمي", balance: 0 },
-    "P270814": { id: "P270814", rank: "عريف", name: "سالم بن خميس البريكي", balance: 0 },
-    "P270825": { id: "P270825", rank: "عريف", name: "راشد بن سعيد الضباري", balance: 0 },
-    "P270828": { id: "P270828", rank: "عريف", name: "عمار بن سعيد الحوسني", balance: 0 },
-    "P270850": { id: "P270850", rank: "عريف", name: "احمد بن محمد الحامدي", balance: 0 },
-    "P270953": { id: "P270953", rank: "عريف", name: "ناصر بن درويش البلوشي", balance: 0 },
-    "P270958": { id: "P270958", rank: "عريف", name: "إبراهيم بن سعيد المقبالي", balance: 0 },
-    "P270966": { id: "P270966", rank: "عريف", name: "علي بن جمعة القطيطي", balance: 0 },
-    "P270984": { id: "P270984", rank: "عريف", name: "فيصل بن خميس الغيثي", balance: 0 },
-    "P271532": { id: "P271532", rank: "عريف", name: "سعيد بن جمعة البريكي", balance: 0 },
-    "P315594": { id: "P315594", rank: "عامل", name: "عمر بن أحمد العوبثاني", balance: 0 }
+            "P17904": { id: "P17904", rank: "ملازم", name: "عثمان بن علي الفارسي", balance: 0 },
+            "P232539": { id: "P232539", rank: "رقيب أول", name: "عادل بن سهيل الشحري", balance: 0 },
+            "P237823": { id: "P237823", rank: "رقيب أول", name: "حميد بن محمد الشبيبي", balance: 0 },
+            "P242808": { id: "P242808", rank: "رقيب أول", name: "يحيى بن خليفة الخميسي", balance: 0 },
+            "P253994": { id: "P253994", rank: "رقيب", name: "سالم بن احمد بن علي جيد", balance: 0 },
+            "P256549": { id: "P256549", rank: "رقيب", name: "عبد الله بن عقيل با عمر", balance: 0 },
+            "P257132": { id: "P257132", rank: "رقيب", name: "محمد بن احمد بيت سليم", balance: 0 },
+            "P259011": { id: "P259011", rank: "رقيب", name: "أشرف بن سيف سالم الكلباني", balance: 0 },
+            "P259065": { id: "P259065", rank: "رقيب", name: "عبد الله بن حسن کشوب", balance: 0 },
+            "P265080": { id: "P265080", rank: "رقيب", name: "عبد الله بن علوي با عمر", balance: 0 },
+            "P271625": { id: "P271625", rank: "عريف", name: "المعتصم بن سالم الغملاسي", balance: 0 },
+            "P271806": { id: "P271806", rank: "عريف", name: "حسن بن احمد العجمي", balance: 0 },
+            "P272096": { id: "P272096", rank: "عريف", name: "محمد بن حميد السعدي", balance: 0 },
+            "P272102": { id: "P272102", rank: "عريف", name: "يوسف بن علي المقبالي", balance: 0 },
+            "P14908": { id: "P14908", rank: "رائد", name: "أحمد بن خلفان المحروقي", balance: 0 },
+            "P230152": { id: "P230152", rank: "رقيب أول", name: "محسن بن علي العامري", balance: 0 },
+            "P230314": { id: "P230314", rank: "رقيب أول", name: "محمد بن حمود الرواحي", balance: 0 },
+            "P230434": { id: "P230434", rank: "رقيب أول", name: "سالم بن خميس الحساني", balance: 0 },
+            "P230488": { id: "P230488", rank: "رقيب أول", name: "فهد بن سالم الغافري", balance: 0 },
+            "P231505": { id: "P231505", rank: "رقيب أول", name: "خالد بن خليفة الجابري", balance: 0 },
+            "P234107": { id: "P234107", rank: "رقيب أول", name: "عدنان بن سعيد البرعمي", balance: 0 },
+            "P234609": { id: "P234609", rank: "رقيب أول", name: "أحمد بن سعيد الفجري", balance: 0 },
+            "P235134": { id: "P235134", rank: "رقيب أول", name: "أحمد بن جمعة الهنداشي", balance: 0 },
+            "P235453": { id: "P235453", rank: "رقيب أول", name: "عيسى بن راشد الحراصي", balance: 0 },
+            "P235969": { id: "P235969", rank: "رقيب أول", name: "احمد بن مولى البلوشي", balance: 0 },
+            "P240953": { id: "P240953", rank: "رقيب أول", name: "أحمد بن علي الكثيري", balance: 0 },
+            "P242263": { id: "P242263", rank: "رقيب", name: "سعود بن جمعة السعدي", balance: 0 },
+            "P243673": { id: "P243673", rank: "رقيب", name: "حمود بن عبد الله اليحيائي", balance: 0 },
+            "P244076": { id: "P244076", rank: "رقيب أول", name: "عبد الرحمن بن يوسف البريدعي", balance: 0 },
+            "P245787": { id: "P245787", rank: "رقيب أول", name: "داود بن علي الشرياني", balance: 0 },
+            "P249089": { id: "P249089", rank: "رقيب أول", name: "نوح بن تعيب الجلبوبي", balance: 0 },
+            "P251644": { id: "P251644", rank: "رقيب", name: "مجدي بن عبد المعطي عيدال", balance: 0 },
+            "P253149": { id: "P253149", rank: "رقيب", name: "أحمد بن عوض الجساسي", balance: 0 },
+            "P253166": { id: "P253166", rank: "رقيب", name: "خميس بن سيف العيسائي", balance: 0 },
+            "P253409": { id: "P253409", rank: "رقيب", name: "محمد بن خميس العلوي", balance: 0 },
+            "P255545": { id: "P255545", rank: "رقيب", name: "وليد بن عبد الله الحديدي", balance: 0 },
+            "P257971": { id: "P257971", rank: "رقيب", name: "عبد الله بن سالم الجرداني", balance: 0 },
+            "P257974": { id: "P257974", rank: "رقيب", name: "محمود بن عيسى العلوي", balance: 0 },
+            "P267134": { id: "P267134", rank: "رقيب", name: "عزان بن عبد الرحيم الحمادي", balance: 0 },
+            "P268514": { id: "P268514", rank: "رقيب", name: "راشد بن محمد العلوي", balance: 0 },
+            "P268587": { id: "P268587", rank: "رقيب", name: "علي بن ناصر المشرفي", balance: 0 },
+            "P262411": { id: "P262411", rank: "رقيب", name: "حمد بن يعقوب ناصر المقبالي", balance: 0 },
+            "P266941": { id: "P266941", rank: "رقيب", name: "محمد بن موسى البلوشي", balance: 0 },
+            "P270786": { id: "P270786", rank: "عريف", name: "الحسن بن علي الحوسني", balance: 0 },
+            "P270790": { id: "P270790", rank: "عريف", name: "احمد بن سالم المقبالي", balance: 0 },
+            "P270804": { id: "P270804", rank: "عريف", name: "محمد بن ناصر المسلمي", balance: 0 },
+            "P270814": { id: "P270814", rank: "عريف", name: "سالم بن خميس البريكي", balance: 0 },
+            "P270825": { id: "P270825", rank: "عريف", name: "راشد بن سعيد الضباري", balance: 0 },
+            "P270828": { id: "P270828", rank: "عريف", name: "عمار بن سعيد الحوسني", balance: 0 },
+            "P270850": { id: "P270850", rank: "عريف", name: "احمد بن محمد الحامدي", balance: 0 },
+            "P270953": { id: "P270953", rank: "عريف", name: "ناصر بن درويش البلوشي", balance: 0 },
+            "P270958": { id: "P270958", rank: "عريف", name: "إبراهيم بن سعيد المقبالي", balance: 0 },
+            "P270966": { id: "P270966", rank: "عريف", name: "علي بن جمعة القطيطي", balance: 0 },
+            "P270984": { id: "P270984", rank: "عريف", name: "فيصل بن خميس الغيثي", balance: 0 },
+            "P271532": { id: "P271532", rank: "عريف", name: "سعيد بن جمعة البريكي", balance: 0 },
+            "P315594": { id: "P315594", rank: "عامل", name: "عمر بن أحمد العوبثاني", balance: 0 }
         };
-        let systemData = { employees: defaultForce, action_logs: [], admin_password: "1234" };
+        let systemData = { employees: JSON.parse(JSON.stringify(defaultForce)), action_logs: [], admin_password: "1234" };
 
+        // تنظيف وإعداد المدخلات بحيث تبدأ دائماً بحرف P الكبير متبوعاً بالأرقام
         function cleanId(id) {
-            return id.replace(/[^\d]/g, '');
+            let cleaned = id.trim().toUpperCase();
+            if (cleaned && !cleaned.startsWith('P')) {
+                cleaned = 'P' + cleaned;
+            }
+            return cleaned.replace(/[^P\d]/g, '');
+        }
+
+        // تحويل المعرف لشكل العرض للمستخدم (حرف p صغير ثم الأرقام)
+        function formatDisplayId(id) {
+            return id.toLowerCase();
         }
 
         async function fetchDatabase() {
@@ -268,23 +275,28 @@
                 const response = await fetch(`${BIN_URL}/latest`, { headers: { "X-Master-Key": MASTER_KEY } });
                 const resData = await response.json();
                 
-                // دمج البيانات السحابية مع القوة البشرية الافتراضية لضمان عدم نقص أي اسم
                 if(resData.record && resData.record.employees) {
-                    Object.keys(defaultForce).forEach(id => {
-                        if(resData.record.employees[id]) {
-                            defaultForce[id].balance = resData.record.employees[id].balance;
+                    Object.keys(resData.record.employees).forEach(id => {
+                        let normalizedId = id.toUpperCase();
+                        if (!normalizedId.startsWith('P')) normalizedId = 'P' + normalizedId;
+
+                        if(systemData.employees[normalizedId]) {
+                            systemData.employees[normalizedId].balance = resData.record.employees[id].balance;
+                        } else {
+                            let empData = resData.record.employees[id];
+                            empData.id = normalizedId;
+                            systemData.employees[normalizedId] = empData;
                         }
                     });
-                    systemData.employees = defaultForce;
                     systemData.action_logs = resData.record.action_logs || [];
                     systemData.admin_password = resData.record.admin_password || "1234";
                 }
                 
                 renderAdminTables();
                 autoSearch();
-                statusText.innerText = "متصل  ✅ - .";
+                statusText.innerText = "متصل ✅";
                 statusText.style.color = "#10b981";
-                badge.innerText = "(متصل   🌐)";
+                badge.innerText = "(متصل 🌐)";
                 badge.style.color = "#10b981";
             } catch (err) {
                 statusText.innerText = "يعمل محلياً (فشل الاتصال بالسيرفر).";
@@ -294,7 +306,7 @@
 
         async function saveDatabaseToCloud() {
             const statusText = document.getElementById('sync-status');
-            statusText.innerText = "🔄 جاري التحديث التلقائي في السيرفر...";
+            statusText.innerText = "🔄 جاري التحديث في السيرفر...";
             statusText.style.color = "#f59e0b";
             try {
                 await fetch(BIN_URL, {
@@ -302,7 +314,7 @@
                     headers: { "Content-Type": "application/json", "X-Master-Key": MASTER_KEY },
                     body: JSON.stringify(systemData)
                 });
-                statusText.innerText = "تم التحديث ! ✅";
+                statusText.innerText = "تم التحديث بنجاح! ✅";
                 statusText.style.color = "#10b981";
             } catch (err) {
                 statusText.innerText = "فشل التحديث التلقائي في السيرفر ❌";
@@ -342,26 +354,26 @@
         }
 
         function autoSearch() {
-            const searchId = cleanId(document.getElementById('search-mil-id').value);
-            if(searchId.length >= 3) searchLeaveBalance();
+            const rawId = document.getElementById('search-mil-id').value;
+            if(rawId.length >= 2) searchLeaveBalance();
         }
 
         function searchLeaveBalance() {
             const searchId = cleanId(document.getElementById('search-mil-id').value);
             const resultDiv = document.getElementById('search-result');
-            if(!searchId) return;
+            if(!searchId || searchId === 'P') { resultDiv.classList.add('hidden'); return; }
             
             const emp = systemData.employees[searchId];
             if(emp) {
                 resultDiv.innerHTML = `
-                    <div class="result-item"><span class="result-label">الرقم العسكري:</span> <span class="result-val"> / ${emp.id}</span></div>
+                    <div class="result-item"><span class="result-label">الرقم العسكري:</span> <span class="result-val">${formatDisplayId(emp.id)}</span></div>
                     <div class="result-item"><span class="result-label">الرتبة:</span> <span class="result-val">${emp.rank}</span></div>
                     <div class="result-item"><span class="result-label">الإسم:</span> <span class="result-val">${emp.name}</span></div>
                     <div class="result-item" style="border-bottom:none; margin-top:5px;"><span class="result-label" style="color:var(--emerald);">رصيد الإجازات الحالي:</span> <span class="result-total">${emp.balance} أيام</span></div>
                 `;
                 resultDiv.classList.remove('hidden');
             } else {
-                resultDiv.innerHTML = `<p style="text-align:center; color:var(--rose); font-size:14px;">لم يتم العثور على هذا الرقم في الكشف.</p>`;
+                resultDiv.innerHTML = `<p style="text-align:center; color:var(--rose); font-size:14px;">لم يتم العثور على الرقم (${formatDisplayId(searchId)}) في الكشف.</p>`;
                 resultDiv.classList.remove('hidden');
             }
         }
@@ -371,7 +383,7 @@
             const name = document.getElementById('new-name').value.trim();
             const rank = document.getElementById('new-rank').value.trim();
             const balance = parseInt(document.getElementById('new-balance').value);
-            if(!id || !name || !rank || isNaN(balance)) { alert('يرجى تعبئة جميع الحقول.'); return; }
+            if(!id || id === 'P' || !name || !rank || isNaN(balance)) { alert('يرجى تعبئة جميع الحقول بشكل صحيح.'); return; }
             
             systemData.employees[id] = { id, name, rank, balance };
             logAction(id, "تسجيل جديد", balance, "إضافة يدوي");
@@ -385,9 +397,9 @@
             const id = cleanId(document.getElementById('action-id').value);
             const amount = parseInt(document.getElementById('action-amount').value);
             const note = document.getElementById('action-note').value.trim() || "بدون ملاحظات";
-            if(!id || isNaN(amount) || amount <= 0) { alert('الرجاء كتابة تفاصيل صحيحة.'); return; }
+            if(!id || id === 'P' || isNaN(amount) || amount <= 0) { alert('الرجاء كتابة تفاصيل صحيحة.'); return; }
             
-            if(!systemData.employees[id]) { alert('الرقم العسكري غير موجود!'); return; }
+            if(!systemData.employees[id]) { alert(`الرقم العسكري (${formatDisplayId(id)}) غير موجود!`); return; }
             
             let typeText = "";
             if(type === 'add') { systemData.employees[id].balance += amount; typeText = "زيادة رصيد"; }
@@ -404,8 +416,8 @@
 
         async function deleteEmployee() {
             const id = cleanId(document.getElementById('delete-id').value);
-            if(!id || !systemData.employees[id]) return;
-            if(confirm(`تأكيد حذف الموظف نهائياً؟`)) {
+            if(!id || !systemData.employees[id]) { alert('الرقم غير موجود لحذفه'); return; }
+            if(confirm(`تأكيد حذف الموظف (${systemData.employees[id].name}) نهائياً؟`)) {
                 delete systemData.employees[id]; 
                 renderAdminTables();
                 document.getElementById('delete-id').value = '';
@@ -424,7 +436,7 @@
 
         function logAction(id, type, amount, note) {
             const now = new Date();
-            const timeString = now.getHours() + ':' + now.getMinutes();
+            const timeString = String(now.getHours()).padStart(2, '0') + ':' + String(now.getMinutes()).padStart(2, '0');
             systemData.action_logs.unshift({ time: timeString, id, type, amount, note });
         }
 
@@ -432,13 +444,13 @@
             const empBody = document.getElementById('employees-table-body'); empBody.innerHTML = '';
             Object.values(systemData.employees).forEach(emp => {
                 const tr = document.createElement('tr');
-                tr.innerHTML = `<td> / ${emp.id}</td><td>${emp.rank}</td><td style="color:#ffffff;">${emp.name}</td><td style="color:var(--emerald); font-weight:bold;">${emp.balance} أيام</td>`;
+                tr.innerHTML = `<td>${formatDisplayId(emp.id)}</td><td>${emp.rank}</td><td style="color:#ffffff;">${emp.name}</td><td style="color:var(--emerald); font-weight:bold;">${emp.balance} أيام</td>`;
                 empBody.appendChild(tr);
             });
             const logsBody = document.getElementById('logs-table-body'); logsBody.innerHTML = '';
             systemData.action_logs.forEach(log => {
                 const tr = document.createElement('tr');
-                tr.innerHTML = `<td>${log.time}</td><td>${log.id}</td><td>${log.type}</td><td>${log.amount}</td><td>${log.note}</td>`;
+                tr.innerHTML = `<td>${log.time}</td><td>${formatDisplayId(log.id)}</td><td>${log.type}</td><td>${log.amount}</td><td>${log.note}</td>`;
                 logsBody.appendChild(tr);
             });
         }
