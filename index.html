@@ -194,6 +194,7 @@
         // السيرفر السحابي الموحد والمجاني لتخزين أرصدتكم تلقائياً
         const BIN_URL = "https://api.jsonbin.io/v3/b/660c6d2fe41b4d34e4de5527";
         const MASTER_KEY = "$2a$10$Rz29XmN0vH8b61kYyZ77X.E6K/eW6uU05gVbN267S0B6XN1N8K1d2";
+        
 
         // قاعدة البيانات المغذاة بأسماء القوة البشرية الصحيحة من ملف الـ PDF الخاص بكم
         const defaultForce = {
@@ -431,7 +432,7 @@
             const empBody = document.getElementById('employees-table-body'); empBody.innerHTML = '';
             Object.values(systemData.employees).forEach(emp => {
                 const tr = document.createElement('tr');
-                tr.innerHTML = `<td>ب / ${emp.id}</td><td>${emp.rank}</td><td style="color:#ffffff;">${emp.name}</td><td style="color:var(--emerald); font-weight:bold;">${emp.balance} أيام</td>`;
+                tr.innerHTML = `<td> / ${emp.id}</td><td>${emp.rank}</td><td style="color:#ffffff;">${emp.name}</td><td style="color:var(--emerald); font-weight:bold;">${emp.balance} أيام</td>`;
                 empBody.appendChild(tr);
             });
             const logsBody = document.getElementById('logs-table-body'); logsBody.innerHTML = '';
