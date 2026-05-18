@@ -99,7 +99,7 @@
             <div class="search-card">
                 <div class="card-title">إستعلام عن الرصيد</div>
                 <div class="form-group">
-                    <input type="text" id="search-mil-id" placeholder="أدخل الرقم العسكري (مثال: 67134)" class="uppercase-input" oninput="autoSearch()">
+                    <input type="text" id="search-mil-id" placeholder="أدخل الرقم العسكري (مثال: p267134)" class="uppercase-input" oninput="autoSearch()">
                 </div>
                 <button onclick="searchLeaveBalance()" class="btn-primary" style="width: 100%; padding: 12px;">إستعلام</button>
                 <div id="search-result" class="hidden result-box"></div>
@@ -116,7 +116,7 @@
                 <div class="admin-section-card">
                     <div>
                         <div class="section-title" style="color: var(--emerald);">تسجيل موظف جديد</div>
-                        <div class="form-group"><input type="text" id="new-id" placeholder="الرقم العسكري (مثال: 67134)"></div>
+                        <div class="form-group"><input type="text" id="new-id" placeholder="الرقم العسكري (مثال: p267134)"></div>
                         <div class="form-group"><input type="text" id="new-name" placeholder="الإسم الكامل"></div>
                         <div class="form-group"><input type="text" id="new-rank" placeholder="الرتبة"></div>
                         <div class="form-group"><input type="number" id="new-balance" placeholder="رصيد الإجازات البدئي"></div>
@@ -252,7 +252,7 @@
     "P270966": { id: "P270966", rank: "عريف", name: "علي بن جمعة القطيطي", balance: 0 },
     "P270984": { id: "P270984", rank: "عريف", name: "فيصل بن خميس الغيثي", balance: 0 },
     "P271532": { id: "P271532", rank: "عريف", name: "سعيد بن جمعة البريكي", balance: 0 },
-    "P2155943": { id: "P2155943", rank: "عامل", name: "عمر بن أحمد العوبثاني", balance: 0 }
+    "P315594": { id: "P315594", rank: "عامل", name: "عمر بن أحمد العوبثاني", balance: 0 }
         };
         let systemData = { employees: defaultForce, action_logs: [], admin_password: "1234" };
 
@@ -353,7 +353,7 @@
             const emp = systemData.employees[searchId];
             if(emp) {
                 resultDiv.innerHTML = `
-                    <div class="result-item"><span class="result-label">الرقم العسكري:</span> <span class="result-val">ب / ${emp.id}</span></div>
+                    <div class="result-item"><span class="result-label">الرقم العسكري:</span> <span class="result-val"> / ${emp.id}</span></div>
                     <div class="result-item"><span class="result-label">الرتبة:</span> <span class="result-val">${emp.rank}</span></div>
                     <div class="result-item"><span class="result-label">الإسم:</span> <span class="result-val">${emp.name}</span></div>
                     <div class="result-item" style="border-bottom:none; margin-top:5px;"><span class="result-label" style="color:var(--emerald);">رصيد الإجازات الحالي:</span> <span class="result-total">${emp.balance} أيام</span></div>
