@@ -74,9 +74,12 @@
 </head>
 <body>
 
-    <header>
-        <div class="header-container">
-            <h1>نظام رصيد إجازات جمارك صرفيت <span id="cloud-badge" style="font-size:12px; color:var(--amber);">(جاري التوصيل التلقائي 🔄)</span></h1>
+        <header>
+        <div class="header-container" style="display: flex; align-items: center; justify-content: space-between; gap: 15px;">
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <img src="rop-logo.png" alt="شعار شرطة عمان السلطانية" style="height: 55px; width: auto; object-fit: contain; filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.5));">
+                <h1>نظام رصيد إجازات جمارك صرفيت <span id="cloud-badge" style="font-size:12px; color:var(--amber);">(جاري التوصيل التلقائي 🔄)</span></h1>
+            </div>
             <div class="nav-buttons">
                 <button onclick="switchPage('user-page')" id="btn-user-page" class="btn-primary">إستعلام الأفراد</button>
                 <button onclick="openAdminModal()" id="btn-admin-page" class="btn-secondary">إدارة الجمارك</button>
